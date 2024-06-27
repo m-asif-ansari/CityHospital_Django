@@ -1,0 +1,37 @@
+{% extends "dashboard/patient_view/book_date.html" %} {% block appointment %}
+
+<div class="sm:ml-64">
+    <div class="p-5 rounded-lg dark:border-gray-700 dark:bg-grey-900">
+        <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-5xl text-center dark:text-black">Dr. {{doc.user.first_name}} {{doc.user.last_name}}'s Availability on {{date_obj }}</h1>
+
+        <div class="grid grid-cols-8 md:grid-cols-20 gap-4">
+            {% for i in time_slot %}
+            <div>
+                <form action="/slotbooking/{{doc.id}}" method="post">
+                    {% csrf_token %}
+
+                    {% if i in booked_slots and booked_slots %}
+                    <input hidden name="time" value="{{i}}">
+                    <input hidden name="date" value="{{date_obj}}">
+                    <button type="submit" name="time" value="{{i}}"
+                        class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800" disabled>
+                        {{i}}
+                    </button>
+                    {% else %}
+                    <input hidden name="time" value="{{i}}">
+                    <input hidden name="date" value="{{appointment.date}}">
+                    <button type="submit" name="time" value="{{i}}"
+                        class="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" onclick="return confirm('Are you sure you want to book this slot for appointment?')">
+                        {{i}}
+                    </button>
+                    {% endif %}
+                </form>
+
+            </div>
+
+            {% endfor %}
+            </div>
+            </div>
+        </div>
+</div>
+{% endblock appointment %}

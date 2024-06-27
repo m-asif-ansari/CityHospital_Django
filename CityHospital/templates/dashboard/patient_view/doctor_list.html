@@ -1,0 +1,56 @@
+{% extends "dashboard/patient_view/layout.html" %} {% block content %}
+<div class="sm:ml-64">
+  <div class="p-5 rounded-lg dark:border-gray-700 mt-14 dark:bg-grey-900">
+    <h1
+      class="mb-4 text-4xl leading-none tracking-tight text-gray-900 md:text-5xl lg:text-5xl text-center dark:text-black"
+    >
+      List of Doctors in City Hospital
+    </h1>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+      {% for doc in doctor %}
+      <div>
+        <div
+          class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+        >
+          <div class="flex justify-end px-4 pt-4"></div>
+          <div class="flex flex-col items-center pb-10">
+            <img
+              class="w-24 h-24 mb-3 rounded-full shadow-lg"
+              src="https://static.vecteezy.com/system/resources/thumbnails/001/511/502/small/male-doctor-icon-free-vector.jpg"
+              alt="{{doc.name}}"
+            />
+            <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">
+              Dr. {{doc.user.first_name}} {{doc.user.last_name}}
+            </h5>
+            <span class="text-sm text-gray-700 dark:text-gray-400"
+              >Specialization: {{doc.specialization}}</span
+            >
+
+            <span class="text-sm text-gray-500 dark:text-gray-400"
+              >Experience: {{doc.experience}}</span
+            >
+            <span class="text-sm text-gray-500 dark:text-gray-400"
+              >Contact No: {{doc.contact_no}}</span
+            >
+            <span class="text-sm text-gray-500 dark:text-gray-400"
+              >Age: {{doc.age}} Gender: {{doc.gender}}</span
+            >
+
+            {% comment %}
+            <div class="flex mt-4 md:mt-6">
+              <a
+                href="/book/{{doc.id}}"
+                class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                >Book Appointment</a
+              >
+            </div>
+            {% endcomment %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock content %}

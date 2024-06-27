@@ -1,0 +1,59 @@
+{% extends "dashboard/doctor_view/layout.html" %}
+{% block content %}
+<div class="sm:ml-64">
+    <div class="p-5 rounded-lg dark:border-gray-700 mt-14 dark:bg-grey-900">
+        <h2
+        class="mb-4 text-4xl leading-none tracking-tight text-gray-900 md:text-5xl lg:text-5xl text-center dark:text-black">
+            {{type}} Appointments
+        </h2>
+
+        {% if appointments %}
+
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        
+                        <th scope="col" class="px-6 py-3">Doctor's Name</th>
+                        <th scope="col" class="px-6 py-3">Patient's Name</th>
+                        <th scope="col" class="px-6 py-3">Patient's Medical History</th>
+                        <th scope="col" class="px-6 py-3">Patient's Age</th>
+                        <th scope="col" class="px-6 py-3">Patient's Gender</th>
+                        <th scope="col" class="px-6 py-3">Patient's Contact No</th>
+                        <th scope="col" class="px-6 py-3">Date</th>
+                        <th scope="col" class="px-6 py-3">Time</th>
+                        <th scope="col" class="px-6 py-3">Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                {% for appointment in appointments %}
+                    <tr
+                        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">Dr. {{ appointment.doctor.user.first_name }} {{ appointment.doctor.user.last_name }}
+                            
+                        </th>
+                        <td class="px-6 py-4 px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{appointment.patient.user.first_name}} {{appointment.patient.user.last_name}}</td>
+                        <td class="px-6 py-4">{{ appointment.patient.medical_history }}</td>
+                        <td class="px-6 py-4">{{ appointment.patient.age }}</td>
+                        <td class="px-6 py-4">{{ appointment.patient.gender }}</td>
+
+                        <td class="px-6 py-4">{{ appointment.patient.contact_no }}</td>
+
+                        <td class="px-6 py-4">{{ appointment.date }}</td>
+                        <td class="px-6 py-4">{{ appointment.time }}</td>
+                        <td class="flex items-center px-6 py-4">
+                            
+                            <a href="/print/{{appointment.id}}" target="_blank"
+                                class="font-medium text-green-600 dark:text-green-500 hover:underline ms-3">Print</a>                            
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+    </div>
+</div>
+</div>
+{% endblock content %}
