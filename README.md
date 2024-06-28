@@ -31,12 +31,12 @@ git clone https://github.com/m-asif-ansari/CityHospital_Django.git
 Activate the virtual environment:
 
 ```
-LINUX and macOS:
+# LINUX and macOS:
 source .venv/bin/activate
 ```
 
 ```
-WINDOWS:
+# WINDOWS:
 .venv\Scripts\activate
 ```
 
