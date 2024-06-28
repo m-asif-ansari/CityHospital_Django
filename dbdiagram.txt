@@ -1,0 +1,45 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Table User {
+  user_id integer [primary key]
+  username varchar
+  email varchar
+  password varchar
+  first_name varchar
+  last_name varchar
+  user_role varchar
+}
+
+Table Patient{
+  patient_id integer [primary key]
+  user varchar
+  age integer
+  gender varchar
+  contact_no integer
+  address varchar
+  medical_history varchar
+}
+
+Table Doctor{
+  doctor_id integer [primary key]
+  user varchar
+  age integer
+  gender varchar
+  contact_no integer
+  specialization varchar
+  experience integer
+}
+Table Appointment {
+  app_id integer [primary key]
+  patient varchar
+  doctor varchar
+  "date" date
+  "time" timestamp
+}
+
+
+Ref: User.user_id - Patient.user 
+Ref: User.user_id - Doctor.user
+Ref: Patient.patient_id < Appointment.patient 
+Ref: Doctor.doctor_id < Appointment.doctor 
