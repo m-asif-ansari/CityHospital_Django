@@ -11,8 +11,20 @@
 
 Project is made with `Django Framework` and uses `SQLite Database` for storing data. The project is deployed on `PythonAnywhere` and Source Code is hosted on `GitHub`.
 
-[![CityHospital Website](https://img.shields.io/badge/CityHospital-Website-blue)](https://masifansari1.pythonanywhere.com)
 [![CityHospital Website](https://img.shields.io/badge/CityHospital-Source_Code-blue)](https://masifansari1.pythonanywhere.com)
+
+[![CityHospital Website](https://img.shields.io/badge/CityHospital-Website-blue)](https://masifansari1.pythonanywhere.com)
+
+<details>
+<summary>
+Demo Credentials for Website
+</summary>
+
+- Demo credentials for the website can be found in the `DOCTOR.MD` & `PATIENT.MD` files.
+
+- Or you can create your own user profile and use them to login to the website.
+
+</details>
 
 ## Installing and Running CityHospital Locally
 
