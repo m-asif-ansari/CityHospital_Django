@@ -1,6 +1,7 @@
 {% extends "dashboard/patient_view/layout.html" %}
 {% block content %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+
 
 <div class="sm:ml-64">
     <div class="p-5 rounded-lg dark:border-gray-700 mt-14 dark:bg-grey-900">
@@ -25,11 +26,6 @@
                             <span class="text-sm text-gray-500 dark:text-gray-400">Age: {{doc.age}} Gender:
                                 {{doc.gender}}</span>
 
-                            {% comment %} <div class="flex mt-4 md:mt-6">
-                                <a href="/appointment/{{doc.id}}"
-                                    class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Book
-                                    Appointment</a>
-                            </div> {% endcomment %}
                         </div>
                     </div>
                 </div>
@@ -46,9 +42,10 @@
                             </svg>
                         </div>
                         <input datepicker datepicker-autohide datepicker-format="yyyy-mm-dd" type="text" name="date"
-                            value="{{date_obj}}"
+                            value="{{date_obj}}" datepicker-min-date="{{todayDate}}" datepicker-max-date="9999-12-31"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Select date" , required='' />
+                            placeholder="Select Date" required='' />
+  
                 </div>
                 <br>
                 <div class='flex elative max-w-sm'>

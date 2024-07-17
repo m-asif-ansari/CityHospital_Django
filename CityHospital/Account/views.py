@@ -8,7 +8,7 @@ from .forms import (
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .models import User, Patient, Doctor, Appointment
-from datetime import datetime
+from datetime import datetime, timedelta
 from django.contrib import messages
 
 
@@ -31,6 +31,7 @@ time_slot = [
     ("17:00"),
     ("17:30"),
 ]
+todayDate = datetime.now().__add__(timedelta(days=1)).strftime("%Y-%m-%d")
 
 
 def home(request):
@@ -138,7 +139,7 @@ def book_appointment(request, id):
     return render(
         request,
         "dashboard/patient_view/book_date.html",
-        {"doc": doctor, "patient": patient},
+        {"doc": doctor, "patient": patient, "todayDate": todayDate},
     )
 
 
@@ -162,6 +163,7 @@ def book_date(request, id):
             "booked_slots": booked_slots,
             "date_obj": date_obj,
             "patient": patient,
+            "todayDate": todayDate,
         },
     )
 
