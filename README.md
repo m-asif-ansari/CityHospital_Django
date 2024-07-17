@@ -1,6 +1,6 @@
 # City Hospital
 
-### Appoinment Scheduler made with Django
+### Appointment Scheduler made with Django
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/m-asif-ansari/CityHospital_Django)
 ![GitHub contributors](https://img.shields.io/github/contributors/m-asif-ansari/CityHospital_Django)
